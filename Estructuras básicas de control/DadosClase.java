@@ -21,7 +21,7 @@ public class DadosClase {
         return tiradas;
     }
 
-               public static void calcularGanador(int puntuaciónMarcos, int puntuaciónJulius){
+    public static void calcularGanador(int puntuaciónMarcos, int puntuaciónJulius){
 
         if (puntuaciónMarcos > puntuaciónJulius){
             System.out.println("El ganador es Marcos");
