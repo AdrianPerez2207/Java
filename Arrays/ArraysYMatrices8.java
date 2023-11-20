@@ -23,8 +23,13 @@ public class ArraysYMatrices8 {
         int posicion = Integer.parseInt(sc.nextLine());
         int tablaNueva[] = new int[9];
         for (int i = 0; i < tablaNueva.length; i++){
-            
+            if (i < posicion){
+                tablaNueva[i] = tabla[i];
+            } else if (i >= posicion){
+                tablaNueva[i] = tabla[i + 1];
+            }            
         }
+        System.out.println(Arrays.toString(tablaNueva));
         
        } catch (Exception e) {
         // TODO: handle exception
