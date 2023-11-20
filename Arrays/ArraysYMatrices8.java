@@ -19,9 +19,10 @@ public class ArraysYMatrices8 {
        System.out.println(Arrays.toString(tabla)); 
        
        try {
-        System.out.println("Escribe una posición entre 0 y 9.");
+        System.out.println("Escribe una posición entre 0 y 9.");//Pedimos ingresar la posición a borrar por teclado
         int posicion = Integer.parseInt(sc.nextLine());
-        int tablaNueva[] = new int[9];
+        int tablaNueva[] = new int[9];//Nuevo Array conuna posición menos
+        //Generamos un for para guardar los valores en el nuevo Array, hacemos condiciones para guardar los números amtes y después de posición 
         for (int i = 0; i < tablaNueva.length; i++){
             if (i < posicion){
                 tablaNueva[i] = tabla[i];
@@ -35,5 +36,6 @@ public class ArraysYMatrices8 {
         // TODO: handle exception
         System.out.println(e.getMessage());
        }
+       sc.close();
     }
 }
