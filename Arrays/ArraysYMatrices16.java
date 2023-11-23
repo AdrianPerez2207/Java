@@ -12,7 +12,7 @@ public class ArraysYMatrices16 {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] == num){
                 return true;
-            }   
+                }      
             }
         }
         return false;
