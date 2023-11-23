@@ -1,4 +1,3 @@
-package Arrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,8 +20,8 @@ public class ArraysYMatrices8 {
        try {
         System.out.println("Escribe una posición entre 0 y 9.");//Pedimos ingresar la posición a borrar por teclado
         int posicion = Integer.parseInt(sc.nextLine());
-        int tablaNueva[] = new int[9];//Nuevo Array conuna posición menos
-        //Generamos un for para guardar los valores en el nuevo Array, hacemos condiciones para guardar los números amtes y después de posición 
+        int tablaNueva[] = new int[9];//Nuevo Array con una posición menos
+        //Generamos un for para guardar los valores en el nuevo Array, hacemos condiciones para guardar los números antes y después de posición 
         for (int i = 0; i < tablaNueva.length; i++){
             if (i < posicion){
                 tablaNueva[i] = tabla[i];
