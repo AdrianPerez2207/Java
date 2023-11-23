@@ -6,6 +6,7 @@ public class ArraysYMatrices16 {
         int numeros = (int) (Math.random() * 50) + 1;
         return numeros;
     }
+    //Función para comparar númerosy que nos devuelva true o false, y que no guarde ese número
     public static boolean compararNumeros(int num, int array[][]){
         for (int i = 0; i < array.length; i++){
             for (int j = 0; j < array[i].length; j++) {
@@ -22,11 +23,14 @@ public class ArraysYMatrices16 {
         int matriz[][] = new int[3][6];
         int numero;
         try {
+            //Recorremos el array y hacemos un do-while para rellenar y comparar los números
             for (int i = 0; i < matriz.length; i++) {
                 for (int j = 0; j < matriz[i].length; j++) {
                     do {
+                        //Generamos números aleatorios y lo guardamos en una variable
                         numero = generarNumeros();
                         System.out.println(numero);
+                        //Comparamos si el número está repetido, y rellenamos el array (números que no están repetidos)
                     } while (compararNumeros(numero, matriz));
                     matriz[i][j] = numero;
                     
