@@ -11,47 +11,52 @@ public class ArraysYMatrices18 {
     public static void main(String[] args) {
         
         int array[][] = new int[4][5];
-        int nuevoArray[][] = new int[5][6];
+        int nuevoArray[][] = new int[5][6]; //Este array tiene una posición mas para llenarlo con las sumas
         int suma1 = 0;
         int sumaFilas[] = new int[4];
         int suma2 = 0;
         int sumaColumnas[] = new int[5];
         int sumaTotal = 0;
         try {
+            //Recorremos el Array y lo llenamos de números aleatorios
             for (int i = 0; i < array.length; i++) {
                 for (int j = 0; j < array[i].length; j++) {
                     array[i][j] = generarNumero(9, 0);
                 }
             }
+            //Recorremos el array lleno y sumamos los numeros del array fila por fila
             for (int i = 0; i < array.length; i++) {
-                suma1 = 0;
+                suma1 = 0; //Ponemos el valor de suma en "0" para sumar otra fila
                 for (int j = 0; j < array[i].length; j++) {
-                    suma1 = suma1 + array[i][j];
+                    suma1 = suma1 + array[i][j]; //Sumamos los elementos de la fila
                 }
-                sumaFilas[i] = suma1;
+                sumaFilas[i] = suma1; //Lo guardamos en un aray simple
             }
             System.out.println(Arrays.toString(sumaFilas));
 
+            //Recorremos el array lleno y sumamos los numeros del array columna por columna
             for (int i = 0; i < array[0].length; i++) {
-                suma2 = 0;
+                suma2 = 0; //Ponemos el valor de suma en "0" para sumar otra columna
                 for (int j = 0; j < array.length; j++) {
-                    suma2 = suma2 + array[j][i];
+                    suma2 = suma2 + array[j][i]; //Sumamos los elementos de la columna
                 }
-                sumaColumnas[i] = suma2;
+                sumaColumnas[i] = suma2; //Lo guardamos en un aray simple
             }
             System.out.println(Arrays.toString(sumaColumnas));
 
+            //Recorremos el array simple para sumar las sumas de las columnas/filas
             for (int i = 0; i < sumaColumnas.length; i++){
                 sumaTotal += sumaColumnas[i];
             }
             System.out.println(sumaTotal);
 
+            //Recorremos el nuevoArray para guardar las sumas totales/filas/columnas
             for (int i = 0; i < nuevoArray.length; i++) {
                 for (int j = 0; j < nuevoArray[i].length; j++) {
-                    if (i == 4 && j == 5) {
+                    if (i == 4 && j == 5) { //Condición para guardar en esa posición los resultados
                         nuevoArray[i][j] = sumaTotal;
-                    } else if (i == 4 || j == 5) { // Cambiar a '||' en lugar de '&&'
-                        if (i == 4) {
+                    } else if (i == 4 || j == 5) { //Condición para guardar en esa posición los resultados
+                        if (i == 4) { //Condición para guardar en esa posición los resultados
                         nuevoArray[i][j] = sumaFilas[j];
                         } else {
                         nuevoArray[i][j] = sumaColumnas[i];
