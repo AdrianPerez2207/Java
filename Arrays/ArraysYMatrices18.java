@@ -63,7 +63,7 @@ public class ArraysYMatrices18 {
                         }
                     }
                 }
-            }            
+            }           
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println("Error: " + e.getMessage());
