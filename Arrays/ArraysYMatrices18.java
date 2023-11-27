@@ -55,14 +55,24 @@ public class ArraysYMatrices18 {
                 for (int j = 0; j < nuevoArray[i].length; j++) {
                     if (i == 4 && j == 5) { //Condición para guardar en esa posición los resultados
                         nuevoArray[i][j] = sumaTotal;
-                    } else if (i == 4 || j == 5) { //Condición para guardar en esa posición los resultados
-                        if (i == 4) { //Condición para guardar en esa posición los resultados
-                        nuevoArray[i][j] = sumaFilas[j];
-                        } else {
-                        nuevoArray[i][j] = sumaColumnas[i];
-                        }
+                    }
+                    if (j == 5 && i < 4){ //Ponemos un tamaño menor en la "i" o "j" porque la "i" de suma viene del viejo array
+                        nuevoArray[i][j] = sumaFilas[i];
+                    }
+                    if (i == 4 && j < 5){
+                        nuevoArray[i][j] =  sumaColumnas[j];
                     }
                 }
+            }
+            //Generamos otro bucle que llegue hasta la longitud del array viejo para llenar el nuevo que es mas grande
+            for (int i = 0; i < array.length; i++) {
+                for (int j = 0; j < array.length; j++) {
+                    nuevoArray[i][j] = array[i][j];
+                }
+            }
+
+            for (int i = 0; i < sumaColumnas.length; i++) {
+                System.out.println(Arrays.toString(nuevoArray[i]));
             }           
         } catch (Exception e) {
             // TODO: handle exception
