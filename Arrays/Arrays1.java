@@ -1,3 +1,5 @@
+package Arrays;
+
 public class Arrays1 {
     //Función para generar un número entre mínimo y máximo
     public static int generarNumero(int maximo, int minimo){
