@@ -1,3 +1,5 @@
+package Pruebaclase;
+
 public class EjercicioStrings {
     
     public static String cambiarVocales(String cadena, String vocal) {

@@ -1,3 +1,5 @@
+package Pruebaclase;
+
 import java.util.Arrays;
 public class EjercicioMatrices {
 

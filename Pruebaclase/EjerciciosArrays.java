@@ -1,3 +1,5 @@
+package Pruebaclase;
+
 /*Dados. Escriba un programa que genere la tirada de 2 dados (de 6 lados) y genere tiradas
 aleatorias y vaya sumando sus resultados hasta que ambos saquen un 6. Se deben
 mostrar todas las tiradas, el número de tiradas realizadas y la suma de ambos dados

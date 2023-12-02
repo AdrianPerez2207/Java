@@ -1,3 +1,5 @@
+package Arrays;
+
 public class Arrays2 {
     //Función para intercambiar los extremos de un Array
     public static int[] intercambio(int cadena[]){
