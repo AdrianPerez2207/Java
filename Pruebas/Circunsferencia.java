@@ -1,4 +1,5 @@
-class Circunsferencia {
+package Pruebas;
+public class Circunsferencia {
     public static void main(String[]args){
         //Enumeramos las variables
         double radio, superficie, longitud;

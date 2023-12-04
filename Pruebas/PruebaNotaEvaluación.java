@@ -1,7 +1,5 @@
+package Pruebas;
 import java.util.Scanner;
-
-import javax.sound.midi.Soundbank;
-
 public class PruebaNotaEvaluación {
 
     public static void main(String[] args) {

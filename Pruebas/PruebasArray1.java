@@ -1,3 +1,4 @@
+package Pruebas;
 public class PruebasArray1 {
 
     public static void main(String[] args) {
