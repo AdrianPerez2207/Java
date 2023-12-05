@@ -3,12 +3,6 @@ package Pruebaclase;
 import java.util.Arrays;
 public class EjercicioMatrices {
 
-    public static int pintarMovimientosCaballo(int i, int j, String tablero[][]){
-        int coordX;
-        int coordY;
-        
-    }
-
     public static String[] coordenadasAjedrez(int i, int j) {
         int coordX;
         char coordY;
