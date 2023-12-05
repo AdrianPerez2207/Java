@@ -97,19 +97,19 @@ public class laberintoAutomatico {
             pintarMatriz(laberinto); //Pintamos el tablero
             switch (menu()) { //Switch para elegir cada opción del menú
             case 1:
-                if ((posicion[1] + 1 < 0) || posicion[1] + 1 > laberinto.length) break;
+                if ((posicion[1] + 1 < 0) || (posicion[1]  + 1 > laberinto.length)) break;
                     posicion[1]++;                   
                 break;
             case 2:
-                if ((posicion[1] - 1 < 0) || posicion[1] - 1 > laberinto.length) break;
+                if ((posicion[1] - 1 < 0) || (posicion[1] - 1 > laberinto.length)) break;
                 posicion[1]--;                  
                 break;
             case 3:
-                if ((posicion[0] + 1 < 0) || posicion[0] + 1 > laberinto.length) break;
+                if ((posicion[0] + 1 < 0) || (posicion[0] + 1 > laberinto.length)) break;
                 posicion[0]++;
                 break;
             case 4:
-                if ((posicion[0] - 1 < 0) || posicion[0] - 1 > laberinto.length) break;
+                if ((posicion[0] - 1 < 0) || (posicion[0] - 1 > laberinto.length)) break;
                 posicion[0]--;
                 break; 
             default:
@@ -129,6 +129,7 @@ public class laberintoAutomatico {
             }
             rellenarLaberinto(laberinto, salida, posicion);
             contador++;
+            System.out.println();
 
             
         } while ((!Arrays.equals(posicion, bomba)) || (!Arrays.equals(posicion, salida))); //Mientras que la posición no sea igual a bomba y salida
