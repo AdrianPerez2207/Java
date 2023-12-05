@@ -1,8 +1,10 @@
 package Pruebaclase;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class laberinto {
+public class laberintoAutomatico {
+
     //Función para pintar la matriz
     public static void pintarMatriz(String matriz[][]) {
         for(int i=0; i<matriz.length; i++) {
@@ -37,15 +39,7 @@ public class laberinto {
     //Función para generar menú
     public static int menu(){
 
-        System.out.println("Elige la opción para mover al jugador");
-        System.out.println("1: Derecha");
-        System.out.println("2: Izquierda");
-        System.out.println("3: Abajo");
-        System.out.println("4: Arriba");
-
-        int opcion = Integer.parseInt(System.console().readLine());
-
-        return opcion;
+        return generarNumero(1, 4);
     }
 
     //Función para generar números aleatorios
@@ -80,7 +74,7 @@ public class laberinto {
 
         return bomba;
     }
-
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
@@ -103,15 +97,19 @@ public class laberinto {
             pintarMatriz(laberinto); //Pintamos el tablero
             switch (menu()) { //Switch para elegir cada opción del menú
             case 1:
-                posicion[1]++;                   
+                if ((posicion[1] + 1 < 0) || posicion[1] + 1 > laberinto.length) break;
+                    posicion[1]++;                   
                 break;
             case 2:
+                if ((posicion[1] - 1 < 0) || posicion[1] - 1 > laberinto.length) break;
                 posicion[1]--;                  
                 break;
             case 3:
+                if ((posicion[0] + 1 < 0) || posicion[0] + 1 > laberinto.length) break;
                 posicion[0]++;
                 break;
             case 4:
+                if ((posicion[0] - 1 < 0) || posicion[0] - 1 > laberinto.length) break;
                 posicion[0]--;
                 break; 
             default:
@@ -135,7 +133,7 @@ public class laberinto {
             
         } while ((!Arrays.equals(posicion, bomba)) || (!Arrays.equals(posicion, salida))); //Mientras que la posición no sea igual a bomba y salida
 
-        System.out.println("Número de intentos: " + contador);
+        System.out.println("Número de movimientos: " + contador);
     }
     
 }
