@@ -97,10 +97,11 @@ public class laberinto {
 
         rellenarLaberinto(laberinto, salida, posicion);
 
-        pintarMatriz(laberinto);
-
+        //Bucle para mover la figura y jugar al laberinto
         do {
-            switch (menu()) {
+            System.out.println(Arrays.toString(bomba)); //Pintamos la bomba para saber dónde está y probar que funciona
+            pintarMatriz(laberinto); //Pintamos el tablero
+            switch (menu()) { //Switch para elegir cada opción del menú
             case 1:
                 posicion[1]++;                   
                 break;
@@ -116,20 +117,22 @@ public class laberinto {
             default:
                 break;
             }
-            if (posicion == salida) {
-            System.out.println("Enhorabuena!! Has encontrado la salida");
+            if (Arrays.equals(posicion, salida)) { //Comparamos que la posición y la salida son las mismas para parar el juego
+                System.out.println("Enhorabuena!! Has encontrado la salida");
+                break;
             }
-            if (posicion == bomba) {
+            if (Arrays.equals(posicion, bomba)) { //Comprobamos que hemos encontrado la bomba
                 System.out.println("BOOOM!! Has encontrtado la bomba");
+                break;
             }
-            if ((posicion[0] < 0 && posicion[0] > 19) || (posicion[1] < 0 && posicion[1] > 19)){
+            if ((posicion[0] < 0 || posicion[0] > 19) || (posicion[1] < 0 || posicion[1] > 19)){ //Comprobamos que no nos salimos del tablero
                 System.out.println("Error!!! Te has salido del tablero");
+                break;
             }
             rellenarLaberinto(laberinto, salida, posicion);
-            pintarMatriz(laberinto);
 
             
-        } while ((posicion != bomba) || (posicion != salida));
+        } while ((!Arrays.equals(posicion, bomba)) || (!Arrays.equals(posicion, salida))); //Mientras que la posición no sea igual a bomba y salida
 
 
     }
