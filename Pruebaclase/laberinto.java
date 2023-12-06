@@ -15,7 +15,7 @@ public class laberinto {
         for (int i = 0; i < laberinto.length; i++) {
             for (int j = 0; j < laberinto[i].length; j++) {
 
-                laberinto[i][j] = ".";
+                laberinto[i][j] = "."; //Primero rellenamos con el punto, después le añadimos los demás elementos 
 
                 if ((i == 0 && j != 0) || (i == 19)){
                     laberinto[i][j] = "-";
@@ -97,11 +97,10 @@ public class laberinto {
         int contador = 0;
 
         rellenarLaberinto(laberinto, salida, posicion);
-
         //Bucle para mover la figura y jugar al laberinto
         do {
             pintarMatriz(laberinto); //Pintamos el tablero
-            switch (menu()) { //Switch para elegir cada opción del menú
+            switch (menu()) {
             case 1:
                 posicion[1]++;                   
                 break;
@@ -125,17 +124,19 @@ public class laberinto {
                 System.out.println("BOOOM!! Has encontrtado la bomba");
                 break;
             }
-            if ((posicion[0] < 0 || posicion[0] > 19) || (posicion[1] < 0 || posicion[1] > 19)){ //Comprobamos que no nos salimos del tablero
+            if ((posicion[0] < 0 && posicion[0] > 19) || (posicion[1] < 0 && posicion[1] > 19)){ //Comprobamos que no nos salimos del tablero
                 System.out.println("Error!!! Te has salido del tablero");
                 break;
             }
             rellenarLaberinto(laberinto, salida, posicion);
-            contador++;
+            contador++; //Contamos los números de intentos
 
             
         } while ((!Arrays.equals(posicion, bomba)) || (!Arrays.equals(posicion, salida))); //Mientras que la posición no sea igual a bomba y salida
 
-        System.out.println("Número de intentos: " + contador);
+        System.out.println("Número de movimientos: " + contador);
+
+
     }
     
 }
