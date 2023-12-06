@@ -1,3 +1,4 @@
+package Strings_y_algoritmos_de_ordenación;
 import java.util.Scanner;
 public class String1B {
 
