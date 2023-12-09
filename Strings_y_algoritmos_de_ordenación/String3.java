@@ -4,8 +4,13 @@ public class String3 {
 
     public static int buscarCadenas(String buscar, String buscada){
         int contador = 0;
-        for (int i = buscar.length() - 1; i >= 0; i++) {
-            
+        //Variable inicio para cambiar el valor donde se inicia la búsqueda
+        int inicio = 0;
+        //Mientras la palabra buscada este en buscar en la siguiente posición de la anterior
+        while (buscar.indexOf(buscada, inicio) != - 1) {
+            buscar.indexOf(buscada, inicio);
+            inicio = buscar.indexOf(buscada, inicio) + 1;
+            contador++;
         }
 
         return contador;
@@ -22,7 +27,7 @@ public class String3 {
 
             System.out.println("Ingresa la segunda cadena que será la buscada");
             buscada = sc.nextLine();
-
+            
             buscarCadenas(buscar, buscada);
             System.out.println("Aparece: " + buscarCadenas(buscar, buscada));
             
