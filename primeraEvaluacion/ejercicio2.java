@@ -16,8 +16,12 @@ public class ejercicio2 {
     public static void main(String[] args) {
         int dado1 = 0;
         int dado2 = 0;
-        int sumaDado1 = 0;
-        int sumaDado2 = 0;
+        int tirada1J1 = 0;
+        int tirada2J2 = 0;
+        int tirada1J2 = 0;
+        int tirada2J1 = 0;
+        int numeroAnterior1 = 0;
+        int numeroAnterior2 = 0;
         int ganadas1 = 0;
         int ganadas2 = 0;
         int perdidas1 = 0;
@@ -25,7 +29,9 @@ public class ejercicio2 {
         //Generamos un bucle para generar las rondas que queramos
         for (int i = 0; i < 10; i++) {
             //Generamos la tirada del jugador 1 y la pintamos por pantalla
-            dado1 = generarNumero(1, 6);
+            tirada1J1 = generarNumero(1, 6);
+            tirada2J1 = generarNumero(1, 6);
+            dado1 = tirada1J1 + tirada2J1;
             System.out.println("Resultado jugador 1: " + dado1);
 
             if (dado1 == 7 || dado1 == 11) { //Si la tiradas es igual que 7 u 11, gana roda y le sumamos 1 al contador de rondas ganadas
@@ -35,11 +41,13 @@ public class ejercicio2 {
                 System.out.println("Pierdes ronda..");
                 perdidas1++;
             } else {
-                sumaDado1 = dado1; //Guardamos la tirada del dado en una variable
+                numeroAnterior1 = dado1; //Guardamos la tirada del dado en una variable
                 while (dado1 != 7) { //Hacemos otro bucle para generar tiradas repetidamente hasta que vuelva a sacar el número del dado anterior o un 7
-                    dado1 = generarNumero(1, 6);
+                    tirada1J1 = generarNumero(1, 6);
+                    tirada2J1 = generarNumero(1, 6);
+                    dado1 = tirada1J1 + tirada2J1;
                     System.out.println("Nuevo resultado de jugador 1:" + dado1);
-                    if (dado1 == sumaDado1) { //Si el resultado de la nueva tirada es igual al resulado de la anterior, gana ronda
+                    if (dado1 == numeroAnterior1) { //Si el resultado de la nueva tirada es igual al resulado de la anterior, gana ronda
                         System.out.println("Ganas ronda!!");
                         ganadas1++;
                         break;
@@ -49,10 +57,12 @@ public class ejercicio2 {
                         break;
                     }
                 }
-                sumaDado1 = 0; //Volvemos a poner la variable a 0 para seguir la siguiente ronda
+                numeroAnterior1 = 0; //Volvemos a poner la variable a 0 para seguir la siguiente ronda
             }
             //Hacemos lo mismo con el jugador 2
-            dado2 = generarNumero(1, 6);
+            tirada1J2 = generarNumero(1, 6);
+            tirada2J2 = generarNumero(1, 6);
+            dado2 = tirada1J2 + tirada2J2;
             System.out.println("Resultado jugador 2: " + dado2);
             if (dado2 == 7 || dado2 == 11) {
                 System.out.println("Ganas ronda!!");
@@ -61,11 +71,13 @@ public class ejercicio2 {
                 System.out.println("Pierdes ronda..");
                 perdidas2++;
             } else {
-                sumaDado2 = dado2;
+                numeroAnterior2 = dado2;
                 while (dado2 != 7) {
-                    dado2 = generarNumero(1, 6);
+                    tirada1J2 = generarNumero(1, 6);
+                    tirada2J2 = generarNumero(1, 6);
+                    dado2 = tirada1J2 + tirada2J2;
                     System.out.println("Nuevo resultado de jugador 2:" + dado2);
-                    if (dado2 == sumaDado2) {
+                    if (dado2 == numeroAnterior2) {
                         System.out.println("Ganas ronda!!");
                         ganadas2++;
                         break;
@@ -75,7 +87,7 @@ public class ejercicio2 {
                         break;
                     }
                 }
-                sumaDado2 = 0;
+                numeroAnterior2 = 0;
             }
         }
         //Pintamos jugadas ganadas y perdidas por pantalla
