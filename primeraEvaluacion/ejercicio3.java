@@ -36,7 +36,6 @@ public class ejercicio3 {
     public static void main(String[] args) {
         String texto = "Hola mundo";
         System.out.println("texto convertido a morse: " + convertirMorse(texto));
-        System.out.println("texto convertido de morse: " + convertirDeMorse(texto));
 
         
     }
