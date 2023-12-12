@@ -13,6 +13,59 @@ package primeraEvaluacion;
 import java.util.Arrays;
 import java.util.Scanner;
 public class ejercicio1 {
+    public static void pintarCoordenadasMayor(int[][] matriz) {
+        int mayor = matriz[0][0];
+        int filaMayor = 0;
+        int columnaMayor = 0;
+    
+        // Encontrar el mayor elemento y sus coordenadas en la matriz
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                if (matriz[i][j] > mayor) {
+                    mayor = matriz[i][j];
+                    filaMayor = i;
+                    columnaMayor = j;
+                }
+            }
+        }
+    
+        // Pintar las coordenadas del mayor elemento
+        System.out.println("El mayor elemento de la matriz es " + mayor + " y se encuentra en la posición (" + filaMayor + ", " + columnaMayor + ")");
+    }
+    public static void intercambiarFilas(int[][] matriz) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingresa la fila 1");
+        int fila1 = Integer.parseInt(sc.nextLine());
+        System.out.println("Ingresa la fila 2");
+        int fila2 = Integer.parseInt(sc.nextLine());
+        if (fila1 < 0 || fila1 >= matriz.length || fila2 < 0 || fila2 >= matriz.length) {
+            System.out.println("Fila no válida. Debe estar entre 0 y " + (matriz.length - 1));
+            return;
+        }
+        int[] temp = new int[matriz[0].length]; // Array temporal para almacenar la fila a intercambiar
+
+        // Copiar la primera fila en el array temporal
+        for (int i = 0; i < matriz[0].length; i++) {
+            temp[i] = matriz[fila1][i];
+        }
+    
+        // Intercambiar las filas: copiar la segunda fila en la primera
+        for (int i = 0; i < matriz[0].length; i++) {
+            matriz[fila1][i] = matriz[fila2][i];
+        }
+    
+        // Copiar el contenido del array temporal (primera fila original) en la segunda fila
+        for (int i = 0; i < matriz[0].length; i++) {
+            matriz[fila2][i] = temp[i];
+        }
+    
+        System.out.println("Filas intercambiadas exitosamente.");
+        // Imprimir la matriz actualizada después del intercambio de filas
+        System.out.println("Matriz después del intercambio:");
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.println(Arrays.toString(matriz[i]));
+        }
+    }
     //Función para ordenar filas
     public static int[][] matrizOrdenada(int matriz[][]){
         int ordenada[][] = new int[20][20];
@@ -29,18 +82,17 @@ public class ejercicio1 {
         return ordenada;
     }
 
-    public static void matrizTraspuesta(int matriz[][]){
-        int tempI[][] = new int[matriz.length][matriz.length];
-        int tempJ[] = new int[matriz.length * matriz.length];
-        int traspuesta[][] = new int[20][20];
-
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                tempJ[j] = matriz[j][i];
+    public static void pintarMatrizTraspuesta(int[][] matriz) {
+        System.out.println("Matriz traspuesta:");
+    
+        for (int j = 0; j < matriz[0].length; j++) {
+            for (int i = 0; i < matriz.length; i++) {
+                System.out.print(matriz[i][j] + "\t");
             }
+            System.out.println();
         }
-        System.out.println(Arrays.toString(tempJ));
     }
+        
     public static int sumaDiagonal(int matriz[][]) {
         int suma = 0;
         //Recoremos la matriz y sumamos los números de la diagonal (si la posición de i y la posición de j son iguales)
@@ -106,6 +158,8 @@ public class ejercicio1 {
         int matriz[][] = new int[20][20];
         int opcion;
         int columna;
+        int fila1;
+        int fila2;
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
@@ -130,6 +184,7 @@ public class ejercicio1 {
             opcion = Integer.parseInt(sc.nextLine());
             switch (opcion) {
                 case 1:
+                    intercambiarFilas(matriz);
                     
                     break;
                 case 2:
@@ -142,10 +197,10 @@ public class ejercicio1 {
                     System.out.println("La suma de la diagonal inversa es: " + sumaInversa(matriz));
                     break;
                 case 4:
-                    
+                    pintarCoordenadasMayor(matriz);
                     break;
                 case 5:
-                    matrizTraspuesta(matriz);
+                    pintarMatrizTraspuesta(matriz);
                     break;
                 case 6:
                     matrizOrdenada(matriz);
