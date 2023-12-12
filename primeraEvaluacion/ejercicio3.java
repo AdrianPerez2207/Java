@@ -1,40 +1,6 @@
 package primeraEvaluacion;
 import java.util.Arrays;
 public class ejercicio3 {
-    public static char obtenerCaracterMorse(String morse) {
-        char[] normalAlphabet = {
-                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-                'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-        };
-        String[] morseAlphabet = {
-                ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.",
-                "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "-----",
-                ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."
-            };
-
-        for (int i = 0; i < morseAlphabet.length; i++) {
-            if (morse.equals(morseAlphabet[i])) {
-                return normalAlphabet[i];
-            }
-        }
-
-        return ' ';
-    }
-    public static String convertirDeMorse(String morse) {
-        StringBuilder texto = new StringBuilder();
-        String[] palabras = morse.split("#");
-
-        for (String palabra : palabras) {
-            String[] letras = palabra.trim().split(" ");
-            for (String letra : letras) {
-                char character = obtenerCaracterMorse(letra);
-                texto.append(character);
-            }
-            texto.append(" ");
-        }
-
-        return texto.toString().trim();
-    }
 
     public static String obtenerCodigoMorse(char caracter){
         String morse[] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
