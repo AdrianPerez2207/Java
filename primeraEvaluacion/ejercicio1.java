@@ -84,12 +84,15 @@ public class ejercicio1 {
 
     public static void pintarMatrizTraspuesta(int[][] matriz) {
         System.out.println("Matriz traspuesta:");
+        int matrizTraspuesta[][] = new int[matriz.length][matriz.length];
     
         for (int j = 0; j < matriz[0].length; j++) {
             for (int i = 0; i < matriz.length; i++) {
-                System.out.print(matriz[i][j] + "\t");
+                matrizTraspuesta[i][j] = matriz[j][i];
             }
-            System.out.println();
+        }
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.println(Arrays.toString(matrizTraspuesta[i]));
         }
     }
         
